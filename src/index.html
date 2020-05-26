@@ -35,6 +35,10 @@
         background: #eee;
       }
 
+      .system-message {
+        background: lightblue;
+      }
+
       .chat-form {
         position: fixed;
         bottom: 0;
@@ -80,6 +84,13 @@
         chatInput.value = '';
 
         return false;
+      });
+
+      socket.on('user connection', msg => {
+        const newMessage = document.createElement('li');
+        newMessage.classList.add = 'system-message';
+        newMessage.innerHTML = msg;
+        messages.append(newMessage);
       });
 
       socket.on('chat message', msg => {
