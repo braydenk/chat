@@ -5,8 +5,8 @@
   "author": "Brayden Killeen <braydenmkilleen@gmail.com> (http://braydenkilleen.com/)",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+    "build": "tsc",
+    "start": "nodemon"
   },
   "dependencies": {
     "express": "4.17.1",
