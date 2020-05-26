@@ -1,13 +1,11 @@
 const socket = io();
 
 const messages = document.querySelector('.messages');
-// const form = document.querySelector('.chat-form');
-// const chatInput = document.querySelector('.chat-form-input');
+const chatForm = document.querySelector('.chat-form');
+const chatInput = document.querySelector('.chat-form-input');
 const usernameInput = document.querySelector('.username');
 
 let username = '';
-
-function addChatMessage(message, options = {}) {}
 
 usernameInput.addEventListener('keyup', event => {
   if (event.keyCode === 13) {
@@ -27,16 +25,37 @@ chatForm.addEventListener(
     event.preventDefault();
 
     const newMessage = document.createElement('li');
-    newMessage.innerHTML = `${username}: ${message}`;
+    newMessage.innerHTML = `${username}: ${chatInput.value}`;
     messages.append(newMessage);
 
-    socket.emit('chat_message', { message: chatInput.value });
+    socket.emit('new_message', { message: chatInput.value });
     chatInput.value = '';
 
     return false;
   },
   false
 );
+
+// document.addEventListener('click', event => {
+//   event.preventDefault();
+// });
+
+// document.querySelector('.send-button').addEventListener(
+//   'click',
+//   event => {
+//     event.preventDefault();
+
+//     const newMessage = document.createElement('li');
+//     newMessage.innerHTML = `${username}: ${message}`;
+//     messages.append(newMessage);
+
+//     socket.emit('chat_message', { message: chatInput.value });
+//     chatInput.value = '';
+
+//     return false;
+//   },
+//   false
+// );
 
 /**
  * Socket events

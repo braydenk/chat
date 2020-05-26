@@ -10,19 +10,26 @@ html {
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-.chat {
-  width: 100%;
+input:focus {
+  outline: none;
+}
+
+.chat-container {
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .messages {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 90%;
 }
 
 .messages > li {
@@ -38,8 +45,7 @@ body {
 }
 
 .chat-form {
-  position: fixed;
-  bottom: 0;
+  align-self: baseline;
   width: 100%;
   display: flex;
 }
@@ -57,7 +63,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .login-container {
